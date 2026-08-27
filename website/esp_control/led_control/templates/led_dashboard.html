@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; font-family: sans-serif; margin-top:50px">
+<h1>ESP32 LED Control</h1>
+<button onclick="setLed('on')" style="padding:20px; background:green; color:white;">ON</button>
+<button onclick="setLed('off')" style="padding:20px; background:red; color:white;">OFF</button>
+<p id="status"></p>
+<script>
+function setLed(s){
+  fetch(`/api/led/${s}/`).then(r=>r.json()).then(d=>{
+    document.getElementById('status').innerText = d.status ? "LED ON" : "LED OFF"
+  })
+}
+setInterval(()=>{
+  fetch('/api/led/').then(r=>r.json()).then(d=>{
+    document.getElementById('status').innerText = d.is_on ? "LED ON" : "LED OFF"
+  })
+}, 2000)
+</script>
+</body>
+</html>

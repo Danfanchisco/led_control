@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Control</title>
+</head>
+<body style="background-color: black; color: white;">
+<p>Signed in as {{ request.user.username }}. <a href="{% url 'logout' %}">Log out</a></p>
+   
+
+
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+<button id="ledOn" style="background-color: green; color: white;">LED ON 🙍🏻‍♂️ </button>
+<button id="ledOff" style="background-color: red; color: white;">LED OFF🙋🏻‍♂️</button>
+  <h2></h2>
+<h1 style="background-color: lightgray; color: black;">Welcome to the LED Control Page</h1>
+
+</body>
+</html>
